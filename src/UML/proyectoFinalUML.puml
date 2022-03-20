@@ -1,0 +1,24 @@
+@startuml
+class materiaPrima{
+-private String nombre;
+-private int cantidad;
+
+method materiaPrima(String nombre, int cantidad);
+method getnombre();
+method getcantidad();
+method setcantidad();
+
+}
+class productos{
+-private String nombre;
+-private int cantidad;
+
+method productos(String nombre, int cantidad);
+method getnombre();
+method getcantidad();
+method setcantidad();
+method inventarioProdcutos(productos p)
+
+}
+
+@enduml
