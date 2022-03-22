@@ -3,8 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Alejo/Desktop/Alejo/JAVA/proyectoFinal/src/vista/interfazEmpresa.java</file>
-            <file>file:/C:/Users/Alejo/Desktop/Alejo/JAVA/proyectoFinal/src/UML/proyectoFinalUML.puml</file>
+            <file>file:/C:/Users/Alejo/Desktop/Alejo/JAVA/proyectoFinal/src/principal/ProyectoFinal.java</file>
+            <file>file:/C:/Users/Alejo/Desktop/Alejo/JAVA/proyectoFinal/src/modelo/comercializacionProductos.java</file>
+            <file>file:/C:/Users/Alejo/Desktop/Alejo/JAVA/proyectoFinal/src/modelo/productos.java</file>
+            <file>file:/C:/Users/Alejo/Desktop/Alejo/JAVA/proyectoFinal/src/servicios/fachada.java</file>
+            <file>file:/C:/Users/Alejo/Desktop/Alejo/JAVA/proyectoFinal/src/controlador/productosController.java</file>
+            <file>file:/C:/Users/Alejo/Desktop/Alejo/JAVA/proyectoFinal/src/modelo/materiaPrima.java</file>
         </group>
     </open-files>
 </project-private>
