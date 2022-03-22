@@ -1,24 +1,72 @@
 @startuml
 class materiaPrima{
--private String nombre;
--private int cantidad;
+    -private String nombre;
+    -private int cantidad;
 
-method materiaPrima(String nombre, int cantidad);
-method getnombre();
-method getcantidad();
-method setcantidad();
+    method materiaPrima(String nombre, int cantidad);
+    method getnombre();
+    method getcantidad();
+    method setcantidad();
+
+}
+class materiaPrimaDAO extends materiaPrima{
+    method materiaPrimaDAO();
+    method grabarMateriaPrima(materiaPrima p);
+    method modificarMateriaPrima(materiaPrima p);
+    method borrarMateriaPrima(String nombre);
+    method listadomateriaPrimas(String nombre);
 
 }
 class productos{
--private String nombre;
--private int cantidad;
+    -private String nombre;
+    -private int cantidad;
 
-method productos(String nombre, int cantidad);
-method getnombre();
-method getcantidad();
-method setcantidad();
-method inventarioProdcutos(productos p)
+    method productos(String nombre, int cantidad);
+    method getnombre();
+    method getcantidad();
+    method setcantidad();
+    method inventarioProdcutos(productos p)
+}
+class productosDAO extends productos{
+    method productosDAO();
+    method grabarProductos(productos p);
+    method modificarProductos(productos p);
+    method borrarProductos(String nombre);
+    method listadoProductos(String nombre);
+
 
 }
+class comercializacionProductos{
+    -private String nombreProducto;
+    -private int cantidadVenta;
 
+    method comercializacionProductos(String nombreProducto,int cantidadVenta)
+    method comercializacionProductos();
+    method getters();
+    method setters();
+}
+class comercializacionProductosDAO extends comercializacionProductos{
+    method comercializacionProductosDAO();
+    method grabarComercializacionProductos(comercializacionProductos p);
+    method modificarComercializacionProductos(comercializacionProductos p);
+    method borrarComercializacionProductos(String nombreProducto);
+    method listadoComercializacionProductos(String nombreProducto);
+}
+class empleado{
+    -private int codigo;
+    -private String nombre;
+    -private int salario;
+    -private int comision;
+
+    method empleado();
+    method empleado(int codigo,String nombre,int salario,int comision);
+    method getters(),setters();s
+}
+class empleadoDAO extends empleado{
+    method empleadoDAO();
+    method grabarEmpleado(productos p);
+    method modificarEmpleado(productos p);
+    method borrarEmpleado(String codigo);
+    method listadoEmpleado(String codigo);
+}
 @enduml

@@ -7,8 +7,12 @@ public class materiaPrima {
     private String nombre;
     private int cantidad;
     
-    private materiaPrima(){
+    public materiaPrima(){
         
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
     public materiaPrima(String nombre,int cantidad){
         this.nombre=nombre;

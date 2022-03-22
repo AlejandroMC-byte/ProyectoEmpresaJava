@@ -12,8 +12,19 @@ public class productos {
     private int precio;
     
     
-    private productos(){
-        
+    public productos(){
+    }
+
+    public int getPrecio() {
+        return precio;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setPrecio(int precio) {
+        this.precio = precio;
     }
     public productos(String nombre,int cantidad, int precio){
         this.nombre=nombre;
