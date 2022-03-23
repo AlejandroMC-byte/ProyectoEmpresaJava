@@ -8,6 +8,8 @@ import modelo.*;
 import servicios.*;
 import vista.*;
 import controlador.*;
+import vista.chat.cliente;
+import vista.chat.servidor;
 /**
  *
  * @author Alejo
@@ -26,6 +28,10 @@ public class ProyectoFinal {
         arrayProductos[3]=new productos("Pasteles de pollo",1,2000);
         arrayProductos[4]=new productos("Churros",1,2000);
         arrayProductos[5]=new productos("Dedos",1,2000);
+        
+        cliente client=new cliente();
+        servidor server=new servidor();
+        
 
     }
     

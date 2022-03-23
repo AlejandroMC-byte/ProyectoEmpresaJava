@@ -3,6 +3,7 @@ package vista.chat;
 import java.awt.event.*;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import javax.swing.*;
@@ -15,6 +16,7 @@ import java.util.logging.Logger;
  * @author Alejo
  */
 public class cliente {
+    marcoCliente inicio=new marcoCliente();
     
 }
 
@@ -27,14 +29,15 @@ class marcoCliente extends JFrame{
         setVisible(true);
     }
 }
-class LaminaMarcoCliente extends JPanel{
-    public LaminaMarcoCliente(){
+class LaminaMarcoCliente extends JPanel implements Runnable{
+    public LaminaMarcoCliente() {
         nick=new JTextField(5);
         add(nick);
-        JLabel texto =new JLabel("-------------CHAT-------------");
+        JLabel texto =new JLabel("-CHAT-");
         add(texto);
         
         ip=new JTextField(8);
+        add(ip);
         campochat=new JTextArea(12,20);
         add(campochat);
         campo1=new JTextField(20);
@@ -48,6 +51,35 @@ class LaminaMarcoCliente extends JPanel{
         
         add(miboton);
         
+        Thread mihilo =new Thread(this);
+        
+    }
+
+    @Override
+    public void run() {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try{
+            ServerSocket servidorCliente =new ServerSocket(9999);
+            
+            Socket cliente;
+            
+            paqueteEnvio paqueteRecibido;
+            
+            while(true){
+                
+                cliente=servidorCliente.accept();
+                
+                ObjectInputStream flujoEntrada=new ObjectInputStream(cliente.getInputStream());
+                
+                paqueteRecibido=(paqueteEnvio) flujoEntrada.readObject();
+                
+                campochat.append("\n"+paqueteRecibido.getNick()+": "+paqueteRecibido.getMensaje()+" para: "+paqueteRecibido.getIp());
+            }
+            
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    
     }
     
     private class EnviaTexto implements ActionListener{

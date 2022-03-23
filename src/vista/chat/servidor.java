@@ -13,7 +13,7 @@ import javax.swing.*;
  * @author Alejo
  */
 public class servidor {
-    
+    MarcoServidor server = new MarcoServidor();
 }
 class MarcoServidor extends JFrame implements Runnable{
     public MarcoServidor(){
@@ -29,7 +29,9 @@ class MarcoServidor extends JFrame implements Runnable{
         mihilo.start();
     }
     private JTextArea areatexto;
-
+    private File archivo;
+    private FileWriter escribir;
+     private PrintWriter linea;
     @Override
     public void run() {
         
@@ -55,6 +57,44 @@ class MarcoServidor extends JFrame implements Runnable{
                 //areatexto.append("\n"+mensajeTexto);
                 areatexto.append("\n"+nick+": "+mensaje+" para: "+ip);
                 
+                archivo=new File("servidor.txt");
+                if(!archivo.exists()){
+                    try{
+                        archivo.createNewFile();
+                        
+                        escribir =new FileWriter(archivo,true);
+                        linea =new PrintWriter(escribir);
+                        //Escribimos en el archivo
+                        linea.println(mensaje);
+                        linea.close();
+                        escribir.close();
+                        
+                    }catch(IOException ex){
+                        System.out.println("ERROR");
+                    }
+                }else{
+                    try{
+                        
+                        escribir =new FileWriter(archivo,true);
+                        linea =new PrintWriter(escribir);
+                        //Escribimos en el archivo
+                        linea.println(mensaje);
+                        linea.close();
+                        escribir.close();
+                    }catch(IOException ex){
+                         System.out.println("ERROR");
+
+                    }
+                }
+                
+                Socket enviaDestinatario=new Socket(ip,9999);
+                
+                ObjectOutputStream paqueteReenvio= new ObjectOutputStream(enviaDestinatario.getOutputStream());
+                
+                paqueteReenvio.writeObject(paqueteRecibido);
+                
+                enviaDestinatario.close();
+                
                 misocket.close();
             }
             
@@ -63,5 +103,23 @@ class MarcoServidor extends JFrame implements Runnable{
             ex.printStackTrace();
         } 
         
+    }
+}
+class archivoTXT{
+    private File archivo;
+    private FileWriter escribir;
+    private PrintWriter linea;
+    
+    public archivoTXT(String nombre){
+        if(!archivo.exists()){
+            try {
+                this.archivo= new File(nombre+".txt");
+                this.archivo.createNewFile();
+            } catch (IOException ex) {
+                Logger.getLogger(archivoTXT.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
+            
+        }
     }
 }
