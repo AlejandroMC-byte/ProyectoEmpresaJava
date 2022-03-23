@@ -6,6 +6,8 @@
 package vista;
 
 import javax.swing.JOptionPane;
+import vista.chat.cliente;
+import vista.chat.servidor;
 
 /**
  *
@@ -17,6 +19,22 @@ public class InicioInterfaz extends javax.swing.JFrame {
      * Creates new form InicioInterfaz
      */
     public InicioInterfaz() {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(InicioInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(InicioInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(InicioInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(InicioInterfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
         initComponents();
     }
 
@@ -29,14 +47,19 @@ public class InicioInterfaz extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jmbMenu = new javax.swing.JMenuBar();
         jmPrincipal = new javax.swing.JMenu();
         jmiPrograma = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jmiSalir = new javax.swing.JMenuItem();
         jmAyuda = new javax.swing.JMenu();
         hmiAcerca = new javax.swing.JMenuItem();
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,7 +71,7 @@ public class InicioInterfaz extends javax.swing.JFrame {
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGap(0, 281, Short.MAX_VALUE)
         );
 
         jmPrincipal.setText("Principal");
@@ -59,13 +82,31 @@ public class InicioInterfaz extends javax.swing.JFrame {
         });
 
         jmiPrograma.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jmiPrograma.setText("Programa");
+        jmiPrograma.setText("Creacion productos");
         jmiPrograma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jmiProgramaActionPerformed(evt);
             }
         });
         jmPrincipal.add(jmiPrograma);
+
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem2.setText("Chat");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jmPrincipal.add(jMenuItem2);
+
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMenuItem3.setText("Inventario");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jmPrincipal.add(jMenuItem3);
         jmPrincipal.add(jSeparator1);
 
         jmiSalir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -109,7 +150,14 @@ public class InicioInterfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jmiProgramaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiProgramaActionPerformed
+        
+        interfazEmpresa empresa=new interfazEmpresa();
+        empresa.setVisible(true);
+        
         // TODO add your handling code here:
+        
+        //cliente client=new cliente();
+        //servidor server=new servidor();
         /*ProgramaIG programaIG = new ProgramaIG();
         ProgramaIG programaView = new ProgramaIG();
         ProgramaDAO programaModel = new ProgramaDAO();
@@ -143,8 +191,20 @@ public class InicioInterfaz extends javax.swing.JFrame {
 
     private void hmiAcercaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hmiAcercaActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(this,"Univalle V 0.1","Acerca de ",2);
+        JOptionPane.showMessageDialog(this,"Productos saludable v1","Acerca de ",2);
     }//GEN-LAST:event_hmiAcercaActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        cliente client=new cliente();
+        servidor server=new servidor();
+        
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+         tablasBD tablas=new tablasBD();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -184,6 +244,9 @@ public class InicioInterfaz extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem hmiAcerca;
     private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JMenu jmAyuda;
     private javax.swing.JMenu jmPrincipal;

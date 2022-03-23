@@ -29,8 +29,8 @@ public class ProyectoFinal {
         arrayProductos[4]=new productos("Churros",1,2000);
         arrayProductos[5]=new productos("Dedos",1,2000);
         
-        cliente client=new cliente();
-        servidor server=new servidor();
+       InicioInterfaz inicio=new InicioInterfaz();
+       inicio.setVisible(true);
         
 
     }

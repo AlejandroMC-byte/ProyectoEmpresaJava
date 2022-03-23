@@ -23,7 +23,7 @@ class MarcoServidor extends JFrame implements Runnable{
         areatexto=new JTextArea();
         milamina.add(areatexto,BorderLayout.CENTER);
         add(milamina);
-        setVisible(true);
+        setVisible(false);
         
         Thread mihilo=new Thread(this);
         mihilo.start();
